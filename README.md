@@ -40,6 +40,33 @@ The proposed pipeline includes:
 
 ---
 
+## 📂 Repository Structure
+
+- `README.md` — project overview  
+- `AI System for Procedural Texture Generation...pdf` — full documentation  
+- `AI System for Procedural Texture Generation...docx` — editable version  
+
+---
+
+## 🚀 Future Work
+
+- Prototype implementation of the procedural graph generator  
+- Shader code generation module  
+- Benchmarking on cloud gaming workloads  
+- Pareto optimization visualization  
+- Residual texture blending experiments  
+- Photonic/hybrid architecture simulation (long‑term research direction)
+
+---
+
+## 📚 How to Cite
+
+If you reference this project, please cite it as:
+
+**Majstorović, M. (2026). *AI System for Procedural Texture Generation from Real Photographs*. GitHub Repository.**
+
+---
+
 ## 📄 Full Documentation
 
 The complete project proposal (methodology, metrics, experiments, cloud implications, photonic architectures, risks, ethics) is available in the repository:
@@ -49,6 +76,6 @@ The complete project proposal (methodology, metrics, experiments, cloud implicat
 
 ---
 
-## 📬 Feedback
+## 💬 Community Feedback
 
 This project is in an early R&D phase. Any feedback, criticism, or suggestions from the graphics, AI, or cloud communities are welcome.
