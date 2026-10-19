@@ -144,6 +144,58 @@ Compression helps storage, not distribution or multi-region deployment.
 **Q: Does it work for all materials?**  
 No — some materials are too irregular.
 
+**Q: Do you have examples of the generated shaders?**  
+Yes — I’m adding them gradually. The generated shaders are readable and structured as a single function that reconstructs the material from the operators. I’ll include short examples in the repository so the ALU/TEX balance is easy to inspect.
+
+**Q: What exactly is the “residual layer”?**  
+It’s essentially a fallback texture. When the procedural graph can’t fully reproduce the fine details of the original material, the system generates a small residual texture that gets blended in the shader.
+
+**Q: How large do the procedural graphs get for complex materials?**  
+Simple materials (concrete, sand, metal) usually produce 5–12 operators.  
+More complex ones (wood, brick, cloth) can reach 20+.  
+Graph simplification is planned to reduce unnecessary nodes.
+
+**Q: How does the system decide when to use the residual layer?**  
+Based on reconstruction error. If the difference between the procedural output and the original texture exceeds a threshold, a fallback texture is generated automatically.
+
+**Q: How do you evaluate reconstruction quality?**  
+I use SSIM, perceptual metrics, frequency analysis, and visual side‑by‑side comparisons. Visual examples will be added to the README.
+
+**Q: How do you estimate shader cost?**  
+Right now: ALU instruction count, number of texture fetches, branching, ALU/TEX balance, and heuristic GPU time estimates.  
+This is the part where I’m actively looking for feedback from graphics programmers.
+
+**Q: How does a procedural shader compare to a traditional texture?**  
+Procedural shaders trade texture fetches for ALU work.  
+They make sense when storage/bandwidth is expensive and shader cost is acceptable.  
+Fallback textures help when the procedural version becomes too expensive.
+
+**Q: How is the procedural graph generated?**  
+By analyzing frequency content, periodicity, local structures, color variation, and noise characteristics. Operators are selected based on these features, and their parameters are optimized.
+
+**Q: How do you handle tiling?**  
+Most procedural operators (Perlin, Worley, Simplex) are tile‑friendly by nature.  
+Residual textures are generated as seamless variants.
+
+**Q: What about mipmapping and LOD?**  
+The procedural part doesn’t require mipmapping.  
+The fallback texture uses a standard mip chain.  
+LOD heuristics are planned for future versions.
+
+**Q: Can this run inside a real engine?**  
+Yes — the output is compatible with GLSL, HLSL, and WGSL.  
+Engine integration would require a wrapper node and a sampler for the fallback texture.
+
+**Q: Does this work for all materials?**  
+No — highly irregular materials are still difficult to proceduralize.  
+That’s why the fallback layer exists.
+
+**Q: Why procedural instead of neural decoding?**  
+Procedural shaders are portable, readable, engine‑friendly, and require no model inference.
+
+**Q: What’s planned next?**  
+A better shader cost model, more operators, graph simplification, engine integration, and benchmarking.
+
 ---
 
 ## Full Proposal
