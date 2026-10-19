@@ -42,9 +42,9 @@ The proposed pipeline includes:
 
 ## 📂 Repository Structure
 
-- `README.md` — project overview  
-- `AI System for Procedural Texture Generation...pdf` — full documentation  
-- `AI System for Procedural Texture Generation...docx` — editable version  
+- [README.md](README.md) — project overview  
+- [AI System for Procedural Texture Generation from Real-World Photographs v1.pdf](AI%20System%20for%20Procedural%20Texture%20Generation%20from%20Real-World%20Photographs%20v1.pdf) — full documentation  
+- [AI System for Procedural Texture Generation from Real-World Photographs v1.docx](AI%20System%20for%20Procedural%20Texture%20Generation%20from%20Real-World%20Photographs%20v1.docx) — editable version  
 
 ---
 
